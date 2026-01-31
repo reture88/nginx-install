@@ -1,0 +1,27 @@
+---
+- name: Nginx Telepítése
+  hosts: all
+  become: yes
+  vars:
+    - custom_message: "Rajnai Rafael"
+
+  tasks:
+
+    - name: Telepítse az Nginx csomagot
+      package:
+        name: nginx
+        state: present
+
+    - name: Írja át az index.html fájlt
+      template:
+        src: index.j2
+        dest: /usr/share/nginx/html/index.html
+      notify: Restart Nginx
+
+
+
+  handlers:
+    - name: Restart Nginx
+      service:
+        name: nginx
+        state: restarted
