@@ -1,3 +1,3 @@
 [web]
-web ansible_host=web ansible_port=22 ansible_user=homework ansible_ssh_pass=homework
+web ansible_host=m-rocky9 ansible_port=22 ansible_user=homework ansible_ssh_pass=homework
 
