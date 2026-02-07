@@ -1,6 +1,6 @@
 ---
 - name: Nginx Telepítése
-  hosts: all
+  hosts: web
   become: yes
   vars:
     - custom_message: "Rajnai Rafael"
