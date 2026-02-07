@@ -6,18 +6,22 @@
     - custom_message: "Rajnai Rafael"
 
   tasks:
-
     - name: Telepítse az Nginx csomagot
       package:
         name: nginx
         state: present
+
+    - name: Indítsa el és engedélyezze az nginx-et
+      service:
+        name: nginx
+        state: started
+        enabled: yes
 
     - name: Írja át az index.html fájlt
       template:
         src: index.j2
         dest: /usr/share/nginx/html/index.html
       notify: Restart Nginx
-
 
 
   handlers:
