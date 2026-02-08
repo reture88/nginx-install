@@ -23,6 +23,14 @@
         dest: /usr/share/nginx/html/index.html
       notify: Restart Nginx
 
+    - name: Permanently enable https service, also enable it immediately if possible
+      ansible.posix.firewalld:
+        service: http
+        state: enabled
+        permanent: true
+        immediate: true
+        offline: true
+
 
   handlers:
     - name: Restart Nginx
